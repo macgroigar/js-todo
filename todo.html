@@ -7,17 +7,21 @@
     <title>Js Todo MVC</title>
 </head>
 <body>
-    <button>Press Me</button>
+    <input type="text"></input>
+    <button onclick="addTodo()">Press Me</button>
 
 <script>
-    let todo1 = 'Get Car';
+    let todos = [''];
 
-    function addTodo(todoTitle) {
+    todos.foreach (function  (todoTitle) {
         let element = document.createElement('div');
         element.innerText = todoTitle;
         document.body.appendChild(element);
-    }
-    addTodo(todo1);
+    });
+
+    function addTodo() {
+        todos.push('new todo');
+    };
 </script>
 </body>
 </html>
