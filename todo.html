@@ -7,6 +7,17 @@
     <title>Js Todo MVC</title>
 </head>
 <body>
-    <button></button>
+    <button>Press Me</button>
+
+<script>
+    let todo1 = 'Get Car';
+
+    function addTodo(todoTitle) {
+        let element = document.createElement('div');
+        element.innerText = todoTitle;
+        document.body.appendChild(element);
+    }
+    addTodo(todo1);
+</script>
 </body>
 </html>
