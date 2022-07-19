@@ -15,15 +15,23 @@
     
     // Model Section
 
-    let todos = [{
-        title: 'Wash Car',
-        dueDate: '19-07-2022',
-        id: 'id1' },
-        {
-        title: 'Sell Car',
-        dueDate: '22-07-2022',
-        id: 'id2' }
-    ];
+    let todos;
+    const savedTodos = JSON.parse(localStorage.getItem('todos'));
+
+    if (Array.isArray(saveTodos)) {
+        todos = saveTodos;
+    } else {
+        todos = [{
+            title: 'Wash Car',
+            dueDate: '19-07-2022',
+            id: 'id1' },
+            {
+            title: 'Sell Car',
+            dueDate: '22-07-2022',
+            id: 'id2' }
+        ];
+    }
+
 
     render();
 
@@ -36,6 +44,8 @@
            dueDate: dueDate,
            id: id 
         });
+
+        saveTodos();
     }
 
     // deletes a todo
@@ -48,6 +58,12 @@
                 return true;
             }
         });
+
+        saveTodos();
+    }
+
+    function saveTodos() {
+        localStorage.setItem('todos', JSON.stringify(todos));
     }
 
     // Controller section
